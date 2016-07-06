@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+<!---当选中内容是黑色的。否则是白色的-->
+    <item android:drawable="@drawable/guide_viewpage_dot_dark" android:state_enabled="true"/>
+
+    <item android:drawable="@drawable/guide_viewpage_dot_white" android:state_enabled="false"/>
+
+
+
+</selector>
