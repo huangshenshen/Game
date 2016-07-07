@@ -8,6 +8,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 import android.R.integer;
+import android.util.Log;
 
 public class HttpUtils {
 	
@@ -17,15 +18,16 @@ public class HttpUtils {
 		ByteArrayOutputStream bos;
 		
 		try {
-			//1������url����
-			URL url =new URL(urlPath);
-			//2������openConnection��������HttpURLConnection����
+
+			URL url =new URL("http://www.3dmgame.com/sitemap/api.php?row=20&typeid=1&paging=1&page=1");
+
 			HttpURLConnection connection =(HttpURLConnection) url.openConnection();
 			connection.setConnectTimeout(10000);
 			connection.setReadTimeout(10000);
-			//4����
+
 			connection.connect();
 			if (connection.getResponseCode()==200) {
+				Log.i("aaa","connection.getResponseCode()=200");
 				InputStream is=connection.getInputStream();
 				bos=new ByteArrayOutputStream();
 				byte []buf=new byte[1024*4];
@@ -35,7 +37,7 @@ public class HttpUtils {
 					
 				}
 				is.close();
-				return bos.toByteArray();//���ڴ��е�����ת�����ֽ�����
+				return bos.toByteArray();
 			}
 			
 		} catch (MalformedURLException e) {

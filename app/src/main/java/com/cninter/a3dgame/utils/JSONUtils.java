@@ -5,7 +5,9 @@ import android.util.Log;
 
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class JSONUtils {
@@ -27,6 +29,7 @@ public class JSONUtils {
 					String typeid2 = data1.getString("typeid2");
 					newobj.setTypeid2(typeid2);
 					String sortrank = data1.getString("sortrank");
+
 					newobj.setSortrank(sortrank);
 					String flag = data1.getString("flag");
 					newobj.setFlag(flag);
@@ -56,8 +59,14 @@ public class JSONUtils {
 					Log.i("ttt","解析中图片的网址"+litpic);
 					newobj.setLitpic(litpic);
 					String pubdate = data1.getString("pubdate");
-					newobj.setPubdate(pubdate);
+					Long pubdateLong = Long.parseLong(pubdate);
+					String padate = getFormatedDateTime(pubdateLong);
+					Log.i("aaa","padate="+padate);
+					newobj.setPubdate(padate);
 					String senddate = data1.getString("senddate");
+					Long senddateLong = Long.parseLong(senddate);
+					String send = getFormatedDateTime(senddateLong);
+					Log.i("aaa","send="+send);
 					newobj.setSenddate(senddate);
 					String mid = data1.getString("mid");
 					newobj.setMid(mid);
@@ -136,6 +145,11 @@ public class JSONUtils {
 		
 		return null;
 		
+	}
+	public static String getFormatedDateTime(long dateTime) {
+
+		SimpleDateFormat sDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		return sDateFormat.format(new Date(dateTime + 0));
 	}
 
 }

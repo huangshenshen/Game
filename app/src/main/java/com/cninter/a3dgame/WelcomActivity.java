@@ -24,7 +24,6 @@ public class WelcomActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_welcom);
         gifImageView = (GifImageView) findViewById(R.id.welcome_gif);
         //添加一个动画
