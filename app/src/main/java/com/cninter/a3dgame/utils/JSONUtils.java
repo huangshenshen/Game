@@ -69,14 +69,14 @@ public class JSONUtils {
 					newobj.setLitpic(litpic);
 					String pubdate = data1.getString("pubdate");
 					Long pubdateLong = Long.parseLong(pubdate);
-					String padate = getFormatedDateTime(pubdateLong);
-					Log.i("aaa","padate="+padate);
+					String padate = getFormatedDateTime(pubdateLong*1000);
+					Log.i("bbb","padate="+padate);
 					newobj.setPubdate(padate);
 					String senddate = data1.getString("senddate");
 					Long senddateLong = Long.parseLong(senddate);
-					String send = getFormatedDateTime(senddateLong);
-					Log.i("aaa","send="+send);
-					newobj.setSenddate(senddate);
+					String send = getFormatedDateTime(senddateLong*1000);
+					Log.i("bbb","send="+send);
+					newobj.setSenddate(send);
 					String mid = data1.getString("mid");
 					newobj.setMid(mid);
 					String keywords = data1.getString("keywords");
@@ -161,7 +161,7 @@ public class JSONUtils {
 	public static String getFormatedDateTime(long dateTime) {
 
 		SimpleDateFormat sDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		return sDateFormat.format(new Date(dateTime + 0));
+		return sDateFormat.format(new Date(dateTime));
 	}
 
 }

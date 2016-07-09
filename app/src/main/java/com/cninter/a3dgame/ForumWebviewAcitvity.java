@@ -11,7 +11,7 @@ import android.webkit.WebViewClient;
 import com.cninter.a3dgame.R;
 
 public class ForumWebviewAcitvity extends AppCompatActivity {
-    String url= "http://www.3dmgame.com/events/";
+    String url= "http://bbs.3dmgame.com/forum.php";
 
     WebView webView;
     WebSettings webSettings;

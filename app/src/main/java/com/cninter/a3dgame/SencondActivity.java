@@ -95,7 +95,7 @@ public class SencondActivity extends AppCompatActivity {
             String pubdate = cursor.getString(cursor.getColumnIndex("pubdate"));
             String click = cursor.getString(cursor.getColumnIndex("click"));
 
-            News news =new News(title,description,pathimg,litpic,arcul,pubdate,click);
+           // News news =new News(title,description,pathimg,litpic,arcul,pubdate,click);
            // Nlist.add(news);
             Log.i("aaa", "展示图片的集合长度是" + Nlist.size());
         }

@@ -43,7 +43,7 @@
         int yeshu=1;
         String sdpath=Environment.getExternalStorageDirectory().getAbsolutePath();
         static int f=0;
-        String dbname="3Dgame.db";
+        String dbname="dangame.db";
         List<NewsObj> data=new ArrayList<>();
 
         public MyIntentService() {
@@ -58,7 +58,8 @@
         }
         List<String> imgpath = new ArrayList<>();;
         List<String> dataimg;
-        String urlpath="http://www.3dmgame.com/sitemap/api.php?row=1000&typeid=1&paging=1&page=1";
+        int typeid=192;
+        String urlpath="http://www.3dmgame.com/sitemap/api.php?row=40&typeid="+typeid+"&paging=1&page=1";
 
         @Override
         protected void onHandleIntent(Intent intent) {
@@ -179,7 +180,7 @@
                if (bt != null) {
                    Log.i("ttt", "保存图片的pp=" + yeshu);
 
-                   boolean flag = saveFile(bt, "item"  + i + ".jpg");
+                   boolean flag = saveFile(bt, "item" +typeid + i + ".jpg");
                    if (flag) {
                        Log.i("aaa", "保存图片成功" + i);
                    } else {

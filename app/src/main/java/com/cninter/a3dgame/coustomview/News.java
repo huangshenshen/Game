@@ -11,8 +11,17 @@ public class News {
     private String arcurl;
     private String pubdate;
     private String click;
+    private String typeid;
 
-    public News(String title, String description, String pathimg, String litpic, String arcurl, String pubdate, String click) {
+    public String getTypeid() {
+        return typeid;
+    }
+
+    public void setTypeid(String typeid) {
+        this.typeid = typeid;
+    }
+
+    public News(String title, String description, String pathimg, String litpic, String arcurl, String pubdate, String click, String typeid) {
         this.title = title;
         this.description = description;
         this.pathimg = pathimg;
@@ -20,6 +29,7 @@ public class News {
         this.arcurl = arcurl;
         this.pubdate = pubdate;
         this.click = click;
+        this.typeid = typeid;
     }
 
     public String getTitle() {

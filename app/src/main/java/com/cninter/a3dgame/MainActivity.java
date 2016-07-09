@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
 import android.os.Environment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -29,6 +30,7 @@ import com.cninter.a3dgame.adpater.MainFragmentPagerAdapter;
 import com.cninter.a3dgame.adpater.MyAdapter;
 import com.cninter.a3dgame.coustomview.News;
 import com.cninter.a3dgame.fragment.ArticleFragment;
+import com.cninter.a3dgame.fragment.ArticleFragment1;
 import com.cninter.a3dgame.service.DownLoadService;
 import com.cninter.a3dgame.service.MyIntentService;
 import com.cninter.a3dgame.utils.HttpUtils;
@@ -49,9 +51,9 @@ public class MainActivity extends FragmentActivity implements RadioGroup.OnCheck
     RadioButton rb01_bottom, rb02_bottom, rb03_bottom;
     List<Fragment> fragments;
     MainFragmentPagerAdapter mainFragmentPagerAdapter;
-    String sdpath = Environment.getExternalStorageDirectory().getAbsolutePath();
-    String dbname = "3Dgame.db";
-
+   // String sdpath = Environment.getExternalStorageDirectory().getAbsolutePath();
+   // String dbname = "3Dgame.db";
+   View.OnClickListener cl ;
     private ListView listView;
 
     List<NewsObj> data;
@@ -64,10 +66,10 @@ public class MainActivity extends FragmentActivity implements RadioGroup.OnCheck
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-          //initStart();
-          initView();
-          initListener();
-          initData();
+           // initStart();
+            initView();
+            initListener();
+            initData();
 
 
 
@@ -89,14 +91,18 @@ public class MainActivity extends FragmentActivity implements RadioGroup.OnCheck
         data = new MyIntentService().getData();
         fragments = new ArrayList<>();
         //添加Fragment
-        ArticleFragment f1 = new ArticleFragment(1);
-        ArticleFragment f2 = new ArticleFragment(2);
-        ArticleFragment f3 = new ArticleFragment(3);
-        ArticleFragment f4 = new ArticleFragment(4);
-        ArticleFragment f5 = new ArticleFragment(5);
-        ArticleFragment f6 = new ArticleFragment(6);
-        ArticleFragment f7 = new ArticleFragment(7);
-        ArticleFragment f8 = new ArticleFragment(8);
+        ArticleFragment f1 = new ArticleFragment(2);
+        ArticleFragment1 f2 = new ArticleFragment1(2);
+
+        ArticleFragment1 f3 = new ArticleFragment1(151);
+        ArticleFragment1 f4 = new ArticleFragment1(152);
+        ArticleFragment1 f5 = new ArticleFragment1(153);
+        ArticleFragment1 f6 = new ArticleFragment1(154);
+        ArticleFragment1 f7 = new ArticleFragment1(196);
+        ArticleFragment1 f8 = new ArticleFragment1(197);
+        ArticleFragment1 f9 = new ArticleFragment1(199);
+        ArticleFragment1 f10= new ArticleFragment1(25);
+
 
         fragments.add(f1);
         fragments.add(f2);
@@ -106,6 +112,9 @@ public class MainActivity extends FragmentActivity implements RadioGroup.OnCheck
         fragments.add(f6);
         fragments.add(f7);
         fragments.add(f8);
+        fragments.add(f9);
+        fragments.add(f10);
+
         mainFragmentPagerAdapter = new MainFragmentPagerAdapter(getSupportFragmentManager(), fragments);
 
         viewPager.setAdapter(mainFragmentPagerAdapter);
@@ -117,7 +126,30 @@ public class MainActivity extends FragmentActivity implements RadioGroup.OnCheck
         radioGroup_top.setOnCheckedChangeListener(this);
         viewPager.addOnPageChangeListener(this);
 
+        cl = new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+               switch (v.getId()){
+                   case R.id.main_bottom_rb01:
+                       rb01_bottom.setBackgroundResource(R.drawable.main_buttom_articleclick);
 
+                       break;
+                   case R.id.main_bottom_rb02:
+                       rb02_bottom.setBackgroundResource(R.drawable.main_buttom_forumclick);
+                       break;
+                   case R.id.main_bottom_rb03:
+                       rb03_bottom.setBackgroundResource(R.drawable.main_buttom_gameclick);
+                       break;
+
+               }
+
+
+            }
+
+        };
+        rb01_bottom.setOnClickListener(cl);
+        rb02_bottom.setOnClickListener(cl);
+        rb03_bottom.setOnClickListener(cl);
     }
 
     private void initView() {
@@ -149,19 +181,49 @@ public class MainActivity extends FragmentActivity implements RadioGroup.OnCheck
         switch (i) {
             case R.id.main_top_rb1:
                 viewPager.setCurrentItem(0);
-                Toast.makeText(MainActivity.this, "top rb01", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "文章首页", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.main_top_rb2:
                 viewPager.setCurrentItem(1);
-                Toast.makeText(MainActivity.this, "top rb02", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "热点新闻", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.main_top_rb3:
                 viewPager.setCurrentItem(2);
-                Toast.makeText(MainActivity.this, "top rb03", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "游戏杂谈", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.main_top_rb4:
+                viewPager.setCurrentItem(3);
+                Toast.makeText(MainActivity.this, "硬件信息", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.main_top_rb5:
+                viewPager.setCurrentItem(4);
+                Toast.makeText(MainActivity.this, "游戏前瞻", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.main_top_rb6:
+                viewPager.setCurrentItem(5);
+                Toast.makeText(MainActivity.this, "游戏评测", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.main_top_rb7:
+                viewPager.setCurrentItem(6);
+                Toast.makeText(MainActivity.this, "原创精品", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.main_top_rb8:
+                viewPager.setCurrentItem(7);
+                Toast.makeText(MainActivity.this, "游戏盘点", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.main_top_rb9:
+                viewPager.setCurrentItem(8);
+                Toast.makeText(MainActivity.this, "时事焦点", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.main_top_rb10:
+                viewPager.setCurrentItem(9);
+                Toast.makeText(MainActivity.this, "攻略中心", Toast.LENGTH_SHORT).show();
                 break;
 
+
             case R.id.main_bottom_rb01:
-                viewPager.setCurrentItem(3);
+                viewPager.setCurrentItem(0);
+
                 Toast.makeText(MainActivity.this, "bottom rb01", Toast.LENGTH_SHORT).show();
                 horizontalScrollView_top.smoothScrollTo(0, 0);
                 break;
@@ -190,7 +252,9 @@ public class MainActivity extends FragmentActivity implements RadioGroup.OnCheck
     public void onPageSelected(int position) {
         //顶部的滚动条出现移动效果
         horizontalScrollView_top.setVisibility(View.VISIBLE);
+        horizontalScrollView_top.setSelected(true);
         radioGroup_top.setVisibility(View.VISIBLE);
+
         //获得当前ViewPager对应的RadioButton
         RadioButton radioButton = (RadioButton) radioGroup_top.getChildAt(position);
 

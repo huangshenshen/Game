@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">3DGame</string>
+    <string name="game_details"><a href="http://playdead.com/inside/">点击进入官网</a></string>
 </resources>

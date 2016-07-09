@@ -6,9 +6,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.os.Environment;
-import android.os.Handler;
-import android.os.Message;
-import android.os.Messenger;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -18,36 +15,31 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.cninter.a3dgame.ArticleWebviewActivity;
 import com.cninter.a3dgame.R;
 import com.cninter.a3dgame.adpater.MainArticleFramentListViewPagerAdapter;
 import com.cninter.a3dgame.adpater.MainArticleFramentViewPagerAdapter;
-import com.cninter.a3dgame.adpater.MainFragmentPagerAdapter;
 import com.cninter.a3dgame.adpater.MyAdapter;
 import com.cninter.a3dgame.coustomview.MainArticleFragmentViewPager;
 import com.cninter.a3dgame.coustomview.News;
-import com.cninter.a3dgame.service.MyIntentService;
 import com.cninter.a3dgame.utils.NewsObj;
-import com.cninter.a3dgame.utils.SQLiteDatabasehelper;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by ${jacksen-hss} on 2016/7/6 0006.
+ * Created by ${jacksen-hss} on 2016/7/9 0009.
  */
-public class ArticleFragment extends Fragment {
+public class ArticleFragment1 extends Fragment{
     //定义文章的类型
     private int typeid;
     private MainArticleFramentViewPagerAdapter mainArticleFramentViewPagerAdapter;
     private MainArticleFramentListViewPagerAdapter mainArticleFramentListViewPagerAdapter;
     String sdpath= Environment.getExternalStorageDirectory().getAbsolutePath();
     String dbname="dangame.db";
-    public ArticleFragment(){}
+    public ArticleFragment1(){}
     List<News> newsList;
     List<NewsObj> newsObjs;
     public List<News> getNewsList() {
@@ -59,7 +51,7 @@ public class ArticleFragment extends Fragment {
     }
 
     MyAdapter adapter;
-    public ArticleFragment(int typeid) {
+    public ArticleFragment1(int typeid) {
         this.typeid = typeid;
     }
 
@@ -68,22 +60,16 @@ public class ArticleFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         //获得Fragment中整体布局
-        View view = inflater.inflate(R.layout.activity_main_articlefragment,null);
+        View view = inflater.inflate(R.layout.activity_main_articlefragment1,null);
         //获得Fragment中的ViewPager
         MainArticleFragmentViewPager mainArticleFragmentViewPager = (MainArticleFragmentViewPager) view.findViewById(R.id.main_articlefragment_viewpager);
-        int imageRsId [] = {R.drawable.default1,R.drawable.default2,R.drawable.default3};
+
         //初始化ViewPager数据
         List<ImageView> imageViews = new ArrayList<>();
-        for (int i=0;i<3;i++){
-            ImageView imageView = new ImageView(getActivity());
-            //设置图片的缩放类型 铺满屏幕
-            imageView.setScaleType(ImageView.ScaleType.FIT_XY);
-            imageView.setImageResource(imageRsId[i]);
-            imageViews.add(imageView);
-        }
 
 
-        ListView listView = (ListView) view.findViewById(R.id.activity_main_articlefragment_lv);
+
+        ListView listView = (ListView) view.findViewById(R.id.activity_main_articlefragment1_lv);
         //从数据库读取等到数据　
         LoadSQLiteData(typeid);
 
@@ -104,11 +90,6 @@ public class ArticleFragment extends Fragment {
             }
         });
 
-
-
-
-        mainArticleFramentViewPagerAdapter = new MainArticleFramentViewPagerAdapter(imageViews);
-        mainArticleFragmentViewPager.setAdapter(mainArticleFramentViewPagerAdapter);
         return view;
     }
 
@@ -142,5 +123,4 @@ public class ArticleFragment extends Fragment {
 
 
     }
-
 }

@@ -1,9 +1,11 @@
 package com.cninter.a3dgame.utils;
 
+import java.io.Serializable;
+
 /**
  * Created by ${jacksen-hss} on 2016/6/24 0024.
  */
-public class NewsObj {
+public class NewsObj implements Serializable {
     public NewsObj(){}
     private String id;
 
