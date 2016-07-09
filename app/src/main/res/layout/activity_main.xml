@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
     tools:context="com.cninter.a3dgame.MainActivity">
 
     <HorizontalScrollView
@@ -201,16 +203,12 @@
         android:layout_height="match_parent"
         android:layout_below="@id/main_top_hsv"
         android:layout_above="@id/main_bottom_rg">
+
+
     </android.support.v4.view.ViewPager>
 
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/main_center_vp"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/main_top_hsv"
-        android:layout_above="@id/main_bottom_rg">
-    </android.support.v4.view.ViewPager>
+
 
 
 

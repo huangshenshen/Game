@@ -19,14 +19,15 @@ public class HttpUtils {
 		
 		try {
 
-			URL url =new URL("http://www.3dmgame.com/sitemap/api.php?row=20&typeid=1&paging=1&page=1");
+			URL url =new URL(urlPath);
 
 			HttpURLConnection connection =(HttpURLConnection) url.openConnection();
 			connection.setConnectTimeout(10000);
 			connection.setReadTimeout(10000);
-
+			Log.i("aaa","HttpUtils");
 			connection.connect();
 			if (connection.getResponseCode()==200) {
+				Log.i("aaa","HttpUtils----");
 				Log.i("aaa","connection.getResponseCode()=200");
 				InputStream is=connection.getInputStream();
 				bos=new ByteArrayOutputStream();
@@ -37,6 +38,7 @@ public class HttpUtils {
 					
 				}
 				is.close();
+				Log.i("bbb",bos.toByteArray().length+"");
 				return bos.toByteArray();
 			}
 			

@@ -3,15 +3,24 @@ package com.cninter.a3dgame.utils;
 
 import android.util.Log;
 
+import com.cninter.a3dgame.coustomview.News;
+
 import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Objects;
 
 public class JSONUtils {
+
+
+
+
 	public static List<NewsObj>  getList(String json){
+
 
 		List<NewsObj> list=new ArrayList<>();
 
@@ -130,6 +139,9 @@ public class JSONUtils {
 					String typeurl = data1.getString("typeurl");
 					newobj.setTypeurl(typeurl);
 					list.add(newobj);
+
+
+
 
 				}
 			Log.i("aaa","集合长度"+list.size());

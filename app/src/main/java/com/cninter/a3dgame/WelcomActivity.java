@@ -12,6 +12,7 @@ import android.view.animation.Animation;
 import android.widget.Toast;
 
 import com.cninter.a3dgame.service.DownLoadService;
+import com.cninter.a3dgame.service.MyIntentService;
 import com.cninter.a3dgame.utils.NetUtils;
 
 import pl.droidsonroids.gif.GifImageView;
@@ -40,9 +41,11 @@ public class WelcomActivity extends AppCompatActivity {
                     Log.i("aaa","网络正常");
                     Intent downServerintent = new Intent(WelcomActivity.this, DownLoadService.class);
                     startService(downServerintent);
+                    Intent intent1 = new Intent(WelcomActivity.this, MyIntentService.class);
+                    startService(intent1);
+
+
                 }
-
-
 
 
 
@@ -73,7 +76,7 @@ public class WelcomActivity extends AppCompatActivity {
         //如果是第一次登陆，就跳转到引导界面否则的话，跳转到主界面
         if(!isLogin){
 
-            Intent guideIntent = new Intent(WelcomActivity.this,GuideActivity.class);
+            Intent guideIntent = new Intent(WelcomActivity.this,MainActivity.class);
             startActivity(guideIntent);
             finish();
         }else {

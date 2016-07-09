@@ -100,8 +100,17 @@ public class NewsObj {
     private String arcurl;
 
     private String typeurl;
+    private String pathimg;
 
-    public NewsObj(String typeid, String id, String typeid2, String sortrank, String flag, String ismake, String channel, String arcrank, String click, String money, String title, String shorttitle, String color, String writer, String source, String litpic, String pubdate, String senddate, String mid, String keywords, String lastpost, String scores, String goodpost, String badpost, String voteid, String notpost, String description, String filename, String dutyadmin, String tackid, String mtype, String weight, String fby_id, String game_id, String feedback, String typedir, String typename, String corank, String isdefault, String defaultname, String namerule, String namerule2, String ispart, String moresite, String siteurl, String sitepath, String arcurl, String typeurl) {
+    public String getPathimg() {
+        return pathimg;
+    }
+
+    public void setPathimg(String pathimg) {
+        this.pathimg = pathimg;
+    }
+
+    public NewsObj(String typeid, String id, String typeid2, String sortrank, String flag, String ismake, String channel, String arcrank, String click, String money, String title, String shorttitle, String color, String writer, String source, String litpic, String pubdate, String senddate, String mid, String keywords, String lastpost, String scores, String goodpost, String badpost, String voteid, String notpost, String description, String filename, String dutyadmin, String tackid, String mtype, String weight, String fby_id, String game_id, String feedback, String typedir, String typename, String corank, String isdefault, String defaultname, String namerule, String namerule2, String ispart, String moresite, String siteurl, String sitepath, String arcurl, String typeurl,String pathimg) {
         this.typeid = typeid;
         this.id = id;
         this.typeid2 = typeid2;
@@ -150,6 +159,7 @@ public class NewsObj {
         this.sitepath = sitepath;
         this.arcurl = arcurl;
         this.typeurl = typeurl;
+        this.pathimg = pathimg;
     }
 
     public void setId(String id){

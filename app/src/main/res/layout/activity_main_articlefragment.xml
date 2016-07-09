@@ -34,8 +34,8 @@
 
         </LinearLayout>
     </FrameLayout>
-    <TextView
-        android:id="@+id/activity_main_articlefragment_tv"
+    <ListView
+        android:id="@+id/activity_main_articlefragment_lv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="test"/>
